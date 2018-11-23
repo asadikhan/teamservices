@@ -9,32 +9,32 @@ build:
           dotnet restore
     - script:
         name: build
-        cwd: AsadCorp.TeamService
+        cwd: TeamService
         code: |
           dotnet build  
     - script:
         name: publish
-        cwd: AsadCorp.TeamService
+        cwd: TeamService
         code: |
           dotnet publish -o publish
     - script:
         name: test-restore
-        cwd: AsadCorp.TeamService.Tests
+        cwd: TeamService.Tests
         code: |
            dotnet restore
     - script:
         name: test-build
-        cwd: AsadCorp.TeamService.Tests
+        cwd: TeamService.Tests
         code: |
           dotnet build
     - script:
         name: test-run
-        cwd: AsadCorp.TeamService.Tests
+        cwd: TeamService.Tests
         code: |
           dotnet test
     - script:
         name: copy binary
-        cwd: AsadCorp.TeamService
+        cwd: TeamService
         code: |
           cp -r . $WERCKER_OUTPUT_DIR/app 
 deploy:
