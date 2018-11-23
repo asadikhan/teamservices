@@ -4,7 +4,7 @@ build:
   steps: 
     - script:
         name: restore
-        cwd: AsadCorp.TeamService
+        cwd: TeamService
         code: |
           dotnet restore
     - script:
