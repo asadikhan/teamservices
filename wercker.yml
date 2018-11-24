@@ -32,6 +32,21 @@ build:
         cwd: TeamService.Tests
         code: |
           dotnet test
+          - script:
+        name: integration-test-restore
+        cwd: TeamService.Tests.Integration
+        code: |
+          dotnet restore
+    - script:
+        name: integration-test-build
+        cwd: TeamService.Tests.Integration
+        code: |
+          dotnet build
+    - script:
+        name: integration-test-run
+        cwd: TeamService.Tests.Integration
+        code: |
+          dotnet test
     - script:
         name: copy binary
         cwd: TeamService

@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace AsadCorp.TeamService.Controllers
 {
+    [Route("[controller]")]
     public class TeamsController : Controller
     {
         ITeamRepository repository;

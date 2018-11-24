@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using AsadCorp.TeamService.Models;
 using AsadCorp.TeamService.Persistence;
+using System.Reflection;
 
 namespace AsadCorp.TeamService
 {
@@ -19,8 +20,16 @@ namespace AsadCorp.TeamService
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc(); //.AddApplicationPart(typeof(Controllers.TeamsController).Assembly);
+            //services.AddMvc().AddApplicationPart(Assembly.Load(new AssemblyName("AsadCorp.TeamService.Controllers.TeamsController")));
+            // services.AddMvc();
+
             services.AddScoped<ITeamRepository, MemoryTeamRepository>();
+        }
+
+        public void Configure(IApplicationBuilder app)
+        {
+            app.UseMvc();
         }
     }
 }
