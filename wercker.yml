@@ -55,6 +55,7 @@ build:
 deploy:
   steps:
     - internal/docker-push:
+        cwd: $WERCKER_OUTPUT_DIR/app
         username: $USERNAME
         password: $PASSWORD
         tag: latest
