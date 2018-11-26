@@ -61,4 +61,4 @@ deploy:
         tag: latest
         repository: asadikhan/teamservice
         registry: https://registry.hub.docker.com
-        entrypoint: "/docker_entrypoint.sh"
+        entrypoint: "/pipeline/source/app/docker_entrypoint.sh"
