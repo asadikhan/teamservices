@@ -57,7 +57,7 @@ deploy:
     - script:
         name: enable 
         code : |
-          chmod +x /pipeline/source/app/docker_entrypoint.sh 
+          chmod +x /usr/local/bin/docker_entrypoint.sh 
     - internal/docker-push:
         cwd: $WERCKER_OUTPUT_DIR/app
         username: $USERNAME        
@@ -65,4 +65,4 @@ deploy:
         tag: latest
         repository: asadikhan/teamservice
         registry: https://registry.hub.docker.com
-        entrypoint: "/pipeline/source/app/docker_entrypoint.sh" 
+        entrypoint: "/usr/local/bin/docker_entrypoint.sh" 
