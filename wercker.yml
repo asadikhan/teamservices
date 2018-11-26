@@ -54,10 +54,15 @@ build:
           cp -r . $WERCKER_OUTPUT_DIR/app 
 deploy:
   steps:
+   - script:
+        name: enable 
+        code : |
+          chmod +x /pipeline/source/app/docker_entrypoint.sh
     - internal/docker-push:
         cwd: $WERCKER_OUTPUT_DIR/app
-        username: $USERNAME
-        password: $PASSWORD
+        username: $USERNAME        
+        password: $PASSWORD 
+        tag: latest
         repository: asadikhan/teamservice
         registry: https://registry.hub.docker.com
-        entrypoint: "\pipeline\source\app\docker_entrypoint.sh"
+        entrypoint: "/pipeline/source/app/docker_entrypoint.sh" 
