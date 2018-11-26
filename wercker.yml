@@ -47,7 +47,7 @@ build:
         cwd: TeamService.Tests.Integration
         code: |
           dotnet test
-# publish
+# packaging
     - script:
         name: copy binary
         cwd: TeamService
@@ -57,6 +57,7 @@ build:
         name: copy entrypoint
         code: |
           cp docker_entrypoint.sh $WERCKER_SOURCE_DIR/app  
+          cp docker_entrypoint.sh $WERCKER_OUTPUT_DIR/app
 deploy:
   steps:
     - script:
