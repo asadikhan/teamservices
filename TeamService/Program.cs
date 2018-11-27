@@ -16,6 +16,7 @@ namespace AsadCorp.TeamService
                 .UseKestrel()
                 .UseStartup<Startup>()
                 .UseConfiguration(config)
+                .UseUrls("http://localhost:8080")
                 .Build();
 
             host.Run();
