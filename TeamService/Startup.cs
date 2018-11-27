@@ -20,9 +20,7 @@ namespace AsadCorp.TeamService
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc(); //.AddApplicationPart(typeof(Controllers.TeamsController).Assembly);
-            //services.AddMvc().AddApplicationPart(Assembly.Load(new AssemblyName("AsadCorp.TeamService.Controllers.TeamsController")));
-            // services.AddMvc();
+            services.AddMvc(); 
 
             services.AddScoped<ITeamRepository, MemoryTeamRepository>();
         }
